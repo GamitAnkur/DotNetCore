@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace demo_dotnet_core.Controllers
 {
-   // [Route("api/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class HomeController1 : ControllerBase
     {

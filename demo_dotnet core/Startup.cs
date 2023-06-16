@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using demo_dotnet_core.Repository;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -15,7 +16,11 @@ namespace demo_dotnet_core
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddTransient<CustomMiddleware>(); // Di for customMW
+             services.AddTransient<CustomMiddleware>(); // Di for customMW
+             // services.AddSingleton<IProductRepository, ProductRepository>();
+            // services.AddScoped<IProductRepository, ProductRepository>();
+             services.AddTransient<IProductRepository, ProductRepository>();
+             services.AddTransient<IProductRepository, TestRepository>();
 
         }
 
